@@ -10,7 +10,7 @@ public:
     MinQueue();
 
     // Initialize MinQueue with elements from array
-    MinQueue(T* A, int n);
+    MinQueue(P* A, int n);
 
     // Destructor
     ~MinQueue();
