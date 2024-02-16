@@ -6,24 +6,24 @@ using namespace std;
 
 #define DEFAULT_LIST_SIZE 10
 
-template <typename T>
+template <typename P>
 class List
 {
 public:
             List        ( void );
             List        ( const List<T> &l );
            ~List        ( void );
-    List<T> operator=   ( const List<T> &l );
-    void    append      ( T item );
-    void    insert      ( T item, int position );
+    List<P> operator=   ( const List<P> &l );
+    void    append      ( P item );
+    void    insert      ( P item, int position );
     int     length      ( void ) const;
-    T &     operator[]  ( int position );
+    P &     operator[]  ( int position );
     void    remove      ( int position );
     bool    isEmpty     ( void ) const;
-    List<T> operator+   ( const List<T> &l ) const;
+    List<P> operator+   ( const List<P> &l ) const;
     void    clear       ( void );
 
-    friend ostream & operator << ( ostream &os, const List<T> &l )
+    friend ostream & operator << ( ostream &os, const List<P> &l )
     {
         os << "[ ";
         for ( int i = 0; i < l.size-1; i++ )
@@ -41,20 +41,20 @@ private:
     // the current number of items in the list
     int     size;
     // the dynamically allocated array storing the list
-    T       *list;
+    P       *list;
 
     // make the array twice as big to hold more items
     void    reallocate  ( void )
     {
 	capacity = capacity*2;
 	
-	T *lst;
-	lst = new T[capacity];
+	P *lst;
+	lst = new P[capacity];
 	for (int i = 0; i < size; i++)
 		lst[i] = list[i]; 
 	
 	delete []list;
-	list = new T[capacity];
+	list = new P[capacity];
 	for (int i = 0; i < size; i++)
 		list[i] = lst[i];
 	
