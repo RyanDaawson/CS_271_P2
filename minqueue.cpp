@@ -20,7 +20,7 @@ using namespace std;
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 	MinQueue<T>::MinQueue	(void)
 {
 
@@ -39,7 +39,8 @@ template typename<T>
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
+
 	MinQueue<T>::MinQueue	(T *A, int n)
 {
 
@@ -57,7 +58,7 @@ template typename<T>
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 	MinQueue<T>::~MinQueue	();                                      
 {
 	delete[] heapArray;
@@ -75,7 +76,7 @@ template typename<T>
 // Return Value:
 //	MinQueue<T>
 //==============================================================
-template typename<T>
+template <typename T>
 MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 {
 	
@@ -93,7 +94,7 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::insert	(const T &x)                          
 {
 
@@ -111,7 +112,7 @@ void	MinQueue<T>::insert	(const T &x)
 // Return Value:
 //	T
 //==============================================================
-template typename<T>
+template <typename T>
 T&	MinQueue<T>::min	() const
 {
 
@@ -129,7 +130,7 @@ T&	MinQueue<T>::min	() const
 // Return Value:
 //	T
 //==============================================================
-template typename<T>
+template <typename T>
 T&	MinQueue<T>::extract_min	()
 {
 
@@ -147,7 +148,7 @@ T&	MinQueue<T>::extract_min	()
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::decrease_key	(int i, const T &k)
 {
 
@@ -164,7 +165,7 @@ void	MinQueue<T>::decrease_key	(int i, const T &k)
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::min_heapify	(int i)
 {
 
@@ -181,7 +182,7 @@ void	MinQueue<T>::min_heapify	(int i)
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::build_heap	()
 {
 
@@ -198,7 +199,7 @@ void	MinQueue<T>::build_heap	()
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::sort	(T *A)
 {
 
@@ -217,7 +218,7 @@ void	MinQueue<T>::sort	(T *A)
 // Return Value:
 //	string
 //==============================================================
-template typename<T>
+template <typename T>
 string	MinQueue<T>::to_string	() const
 {
 
@@ -234,7 +235,7 @@ string	MinQueue<T>::to_string	() const
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::set(int i, const T &val)
 {
 
@@ -250,7 +251,7 @@ void	MinQueue<T>::set(int i, const T &val)
 // Return Value:
 //	Void
 //==============================================================
-template typename<T>
+template <typename T>
 void	MinQueue<T>::allocate(int n)
 {
 
