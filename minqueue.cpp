@@ -9,7 +9,4 @@
 //========================================================
 
 template <typename T>
-MinQueue<T>::MinQueue() {
-
-}
-
+MinQueue<T>::MinQueue() {}
