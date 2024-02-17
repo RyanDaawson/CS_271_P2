@@ -1,4 +1,4 @@
-#ifndef MINQUEUE_H
+
 #define MINQUEUE_H
 
 #include <string>
