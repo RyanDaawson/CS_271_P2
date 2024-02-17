@@ -31,6 +31,7 @@ template typename<T>
    
 //==============================================================
 // copy constructor
+// Philip
 // 	- create a minimum priority queue (min heap) of the n elements in A
 //
 // Parameters:
@@ -48,6 +49,7 @@ template typename<T>
     
 //==============================================================
 // destructor
+// Philip
 // 	- frees up memory allocated by the data class
 //
 // Parameters:
@@ -65,6 +67,7 @@ template typename<T>
     
 //==============================================================
 // assignment
+// Philip
 // 	- Assignment operator
 //
 // Parameters:
@@ -82,6 +85,7 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 
 //==============================================================
 // insert
+// Philip
 // 	- Inserts item x into the queue. If it is full, returns error.
 //
 // Parameters:
@@ -99,6 +103,7 @@ void	MinQueue<T>::insert	(const T &x)
 
 //==============================================================
 // min
+// Aniket
 // 	- Returns smallest item in the queue. If it is empty, returns error.
 //
 // Parameters:
@@ -116,6 +121,7 @@ T&	MinQueue<T>::min	() const
 
 //==============================================================
 // extract_min
+// Philip
 // 	- Removes smallest item from the queue and returns it. If it is empty, returns error
 //
 // Parameters:
@@ -133,6 +139,7 @@ T&	MinQueue<T>::extract_min	()
 
 //==============================================================
 // decrease_key
+// Aniket
 // 	- Decreases key value of node at index i to k. If it is not present or
 //
 // Parameters:
@@ -149,6 +156,7 @@ void	MinQueue<T>::decrease_key	(int i, const T &k)
 
 //==============================================================
 // min_heapify
+// Aniket
 // 	- Ensure the subtree rooted at index i follows the heap property
 //
 // Parameters:
@@ -165,6 +173,7 @@ void	MinQueue<T>::min_heapify	(int i)
 
 //==============================================================
 // build_heap
+// Philip
 // 	- Builds a min heap from the contents of the array.
 //
 // Parameters:
@@ -181,6 +190,7 @@ void	MinQueue<T>::build_heap	()
 
 //==============================================================
 // sort
+// Philip
 // 	- Sorts the array using Heapsort algorithm
 //
 // Parameters:
@@ -198,6 +208,7 @@ void	MinQueue<T>::sort	(T *A)
 
 //==============================================================
 // to_string
+// Ryan
 // 	- Return a string representation of the queue
 //
 // Parameters:
@@ -214,6 +225,7 @@ string	MinQueue<T>::to_string	() const
 
 //==============================================================
 // set
+// Ryan
 // 	- Set element at position i to value val
 //
 // Parameters:
@@ -229,6 +241,7 @@ void	MinQueue<T>::set(int i, const T &val)
 
 //==============================================================
 // allocates
+// Ryan
 // 	- ensures the member array has a capacity of at least n
 //
 // Parameters:
