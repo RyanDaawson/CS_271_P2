@@ -4,55 +4,47 @@
 #include <string>
 
 template <typename T>
-class MinQueue {
-public:
-    // Default constructor
-    MinQueue();
-
-    // Initialize MinQueue with elements from array
-    MinQueue(T* A, int n);
-
-    // Destructor
-    ~MinQueue();
-
-    // Insert element into MinQueue
-    void insert(const T& x);
-
-    // Return the minimum element in the MinQueue
-    T min() const;
-
-    // Extract and return the minimum element from the MinQueue
-    T extract_min();
-
-    // Decrease the value of element at index i to k
-    void decrease_key(int i, const T& k);
-
-    // Ensure the subtree rooted at index i follows the heap property
-    void heapify(int i);
-
-    // Build a min-heap from the current elements
-    void build_min_heap();
-
-    // Sort the elements of MinQueue and store them in array A
-    void heapsort(T* A);
-
-    // Return a string representation of the MinQueue
-    std::string to_string() const;
-
-    // Set the element at index i to val
-    void set(int i, const T& val);
-
-    // Ensure the underlying array has capacity for at least n elements
-    void allocate(int n);
-
+class MinQueue
+{
 private:
-    T* heapArray;    // Array to store the heap elements
-    int capacity;    // Maximum size of the heap
-    int heapSize;    // Current number of elements in the heap
+    T *heapArray; // pointer to the array that stores elements of Heap data structure.
+    int capacity; // maximum number of items the queue can hold.
+    int heapsize; // current number of items in the queue.
 
-    // Utility functions (if needed)
-    void increase_capacity();
-    void swap(T& a, T& b);
+    void increase_capacity() // function to enlarge the size of the heapArray when it is full
+    {
+        int newCapacity = capacity * 2;
+        T *newHeap = new T[newCapacity];
+        for (int i = 0; i < heapSize; ++i)
+            newHeap[i] = heapArray[i];
+
+        delete[] heapArray;
+        heapArray = newHeap;
+        capacity = newCapacity;
+    }
+
+    void swap(T &a, T &b) // helper function for swapping two values
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    };
+
+public:
+    MinQueue(void);                                   // Constructor - creates a new empty Queue with given capacity */
+    MinQueue(T *A, int n);                            // Copy constructor - copies from an existing object.
+    ~MinQueue();                                      // Destructor - frees up memory allocated by the data class
+    MinQueue<T> operator=(const MinQueue<T> &myHeap); // Assignment operator
+    void insert(const T &x);                          // Inserts item x into the queue. If it is full, returns error.
+    T min() const;                                    // Returns smallest item in the queue. If it is empty, returns error.
+    T extract_min();                                  // Removes smallest item from the queue and returns it. If it is empty, returns
+    void decrease_key(int i, const T &k);             // Decreases key value of node at index i to k. If it is not present or
+    void heapify(int i);                              // Ensure the subtree rooted at index i follows the heap property
+    void build_min_heap();                            // Builds a min heap from the contents of the array.
+    void heapsort(T *A);                              // Sorts the array using Heapsort algorithm
+    string to_string() const;                         // Return a string representation of the queue
+    void set(int i, const T &val);                    // Set element at position i to value val
+    void allocate(int n);                             // Allocates space for n elements.
 };
 
-#endif // MINQUEUE_H
+#endif /* MINQUEUE_H */
