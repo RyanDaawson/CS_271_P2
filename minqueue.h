@@ -1,68 +1,58 @@
-#include <iostream>
-using namespace std;
+#ifndef MINQUEUE_H
+#define MINQUEUE_H
 
-#ifndef LIST_H
-#define LIST_H
+#include <string>
 
-#define DEFAULT_LIST_SIZE 10
-
-template <typename P>
-class List
-{
+template <typename T>
+class MinQueue {
 public:
-            List        ( void );
-            List        ( const List<T> &l );
-           ~List        ( void );
-    List<P> operator=   ( const List<P> &l );
-    void    append      ( P item );
-    void    insert      ( P item, int position );
-    int     length      ( void ) const;
-    P &     operator[]  ( int position );
-    void    remove      ( int position );
-    bool    isEmpty     ( void ) const;
-    List<P> operator+   ( const List<P> &l ) const;
-    void    clear       ( void );
+    // Default constructor
+    MinQueue();
 
-    friend ostream & operator << ( ostream &os, const List<P> &l )
-    {
-        os << "[ ";
-        for ( int i = 0; i < l.size-1; i++ )
-            os << l.list[i] << ", ";
-        if ( l.size != 0 )
-            os << l.list[l.size-1] << " ]";
-        else
-            os << " ]";
-        return os;
-    }
+    // Initialize MinQueue with elements from array
+    MinQueue(T* A, int n);
+
+    // Destructor
+    ~MinQueue();
+
+    // Insert element into MinQueue
+    void insert(const T& x);
+
+    // Return the minimum element in the MinQueue
+    T min() const;
+
+    // Extract and return the minimum element from the MinQueue
+    T extract_min();
+
+    // Decrease the value of element at index i to k
+    void decrease_key(int i, const T& k);
+
+    // Ensure the subtree rooted at index i follows the heap property
+    void heapify(int i);
+
+    // Build a min-heap from the current elements
+    void build_min_heap();
+
+    // Sort the elements of MinQueue and store them in array A
+    void heapsort(T* A);
+
+    // Return a string representation of the MinQueue
+    std::string to_string() const;
+
+    // Set the element at index i to val
+    void set(int i, const T& val);
+
+    // Ensure the underlying array has capacity for at least n elements
+    void allocate(int n);
 
 private:
-    // the maximum capacity of the array storing the list
-    int     capacity;
-    // the current number of items in the list
-    int     size;
-    // the dynamically allocated array storing the list
-    P       *list;
+    T* heapArray;    // Array to store the heap elements
+    int capacity;    // Maximum size of the heap
+    int heapSize;    // Current number of elements in the heap
 
-    // make the array twice as big to hold more items
-    void    reallocate  ( void )
-    {
-	capacity = capacity*2;
-	
-	P *lst;
-	lst = new P[capacity];
-	for (int i = 0; i < size; i++)
-		lst[i] = list[i]; 
-	
-	delete []list;
-	list = new P[capacity];
-	for (int i = 0; i < size; i++)
-		list[i] = lst[i];
-	
-	delete []lst;   
-    };
+    // Utility functions (if needed)
+    void increase_capacity();
+    void swap(T& a, T& b);
 };
 
-#include "List.cpp" // this is necessary because the list
-                    // class is a template and cannot be
-                    // compiled separately.
-#endif
+#endif // MINQUEUE_H
