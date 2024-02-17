@@ -13,7 +13,7 @@ using namespace std;
 
 //==============================================================
 // default constructor
-// 	- creates a new empty Queue with given capacity 
+// 	- creates a new empty Queue
 //
 // Parameters:
 //	Void
