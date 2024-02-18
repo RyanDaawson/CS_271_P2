@@ -123,7 +123,7 @@ void	MinQueue<T>::insert	(const T &x)
 //==============================================================
 
 template <typename T>
-T&	MinQueue<T>::min	() const
+T&	MinQueue<T>::min	()
 {
     if (isEmpty()) {
         throw std::runtime_error("MinQueue is empty.");
