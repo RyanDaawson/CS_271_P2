@@ -41,6 +41,12 @@ template <typename T>
 
 MinQueue<T>::MinQueue(T *A, int n)
 {
+<<<<<<< Updated upstream
+=======
+	for (int i = 0; i < n; i++)
+		heapArray.push_back(A[i]);
+	build_heap();
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -54,9 +60,15 @@ MinQueue<T>::MinQueue(T *A, int n)
 //	Void
 //==============================================================
 template <typename T>
+<<<<<<< Updated upstream
 MinQueue<T>::~MinQueue();
 {
 	delete[] heapArray;
+=======
+MinQueue<T>::~MinQueue()
+{
+	heapArray.clear();
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -72,6 +84,14 @@ MinQueue<T>::~MinQueue();
 template <typename T>
 MinQueue<T> MinQueue<T>::operator=(const MinQueue<T> &myHeap)
 {
+<<<<<<< Updated upstream
+=======
+	heapArray.clear();
+	for (vector<int>::size_type i = 0; i < myHeap.heapArray.size(); i++)
+		heapArray.push_back(myHeap.heapArray[i]);
+	build_heap();
+	return *this;
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -102,6 +122,14 @@ void MinQueue<T>::insert(const T &x)
 template <typename T>
 T &MinQueue<T>::min() const
 {
+<<<<<<< Updated upstream
+=======
+	if (isEmpty())
+	{
+		throw std::runtime_error("MinQueue is empty.");
+	}
+	return heapArray[0];
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -117,6 +145,16 @@ T &MinQueue<T>::min() const
 template <typename T>
 T &MinQueue<T>::extract_min()
 {
+<<<<<<< Updated upstream
+=======
+	T &min = heapArray[0];
+	heapArray[0] = heapArray.at(heapArray.size() - 1);
+	cout << *heapArray.end() << endl;
+	heapArray.resize(heapArray.size() - 1);
+	build_heap();
+
+	return min;
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -147,6 +185,29 @@ void MinQueue<T>::decrease_key(int i, const T &k)
 template <typename T>
 void MinQueue<T>::min_heapify(int i)
 {
+<<<<<<< Updated upstream
+=======
+	int smallest = i;					  // Initialize smallest as root Since we are using 0 based indexing
+	vector<int>::size_type l = 2 * i + 1; // left = 2*i + 1
+	vector<int>::size_type r = 2 * i + 2; // right = 2*i + 2
+
+	// If left child is smaller than root
+	if (l < heapArray.size() && heapArray[l] < heapArray[smallest])
+		smallest = l;
+
+	// If right child is samller than smallest so far
+	if (r < heapArray.size() && heapArray[r] < heapArray[smallest])
+		smallest = r;
+
+	// If smallest is not root
+	if (smallest != i)
+	{
+		swap(heapArray[i], heapArray[smallest]);
+
+		// Recursively heapify the affected sub-tree
+		min_heapify(smallest);
+	}
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -162,6 +223,12 @@ void MinQueue<T>::min_heapify(int i)
 template <typename T>
 void MinQueue<T>::build_heap()
 {
+<<<<<<< Updated upstream
+=======
+	int n = heapArray.size();
+	for (int i = n / 2; i > -1; i--)
+		min_heapify(i);
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -192,6 +259,10 @@ void MinQueue<T>::sort(T *A)
 template <typename T>
 string MinQueue<T>::to_string() const
 {
+<<<<<<< Updated upstream
+=======
+	return "s";
+>>>>>>> Stashed changes
 }
 
 //==============================================================
@@ -238,4 +309,7 @@ void MinQueue<T>::allocate(int n)
 	heapArray = newHeap;
 	capacity = newCapacity;
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
