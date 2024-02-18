@@ -6,9 +6,10 @@
 //
 #include <iostream>
 #include "usecase.cpp"
+#include "minqueue.cpp"
 
 using namespace std;
-
+/*
 void test_minqueue()
 {
 
@@ -393,11 +394,11 @@ void time_test()
     total += elapsed.count();
     cout << "Total time: " << total << endl;
 }
-
+*/
 int main()
 {
 
-    test_minqueue();
+  /*  test_minqueue();
     test_insert();
     test_min();
     test_extract_min();
@@ -410,7 +411,10 @@ int main()
 
     time_test();
 
-    cout << "Testing completed" << endl;
+    cout << "Testing completed" << endl;*/
+    int a[] = {3, 2, 1};  
+    MinQueue<int> m(a, 3);
+    cout << m << endl;
 
     return 0;
 }
