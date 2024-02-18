@@ -286,10 +286,12 @@ string	MinQueue<T>::to_string	() const
 //	Void
 //==============================================================
 template <typename T>
-void	MinQueue<T>::set(int i, const T &val)
+void MinQueue<T>::set(int i, const T &val) if (i < 0 || i heapSize)
 {
-
+	throw std::out_of_range("Index out of range");
 }
+
+heapArray[i] = val;
 
 //==============================================================
 // allocates
