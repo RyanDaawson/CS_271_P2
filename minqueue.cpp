@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "minqueue.h"
+#include <sstream>
 using namespace std;
 
 #include <string>
@@ -125,11 +126,8 @@ void	MinQueue<T>::insert	(const T &x)
 template <typename T>
 T&	MinQueue<T>::min	()
 {
-    if (isEmpty()) {
-        throw std::runtime_error("MinQueue is empty.");
-    }
-  
-    return heapArray[0];
+    if (heapArray.size() > 0) 
+        return heapArray[0];
 }
 
 //==============================================================
@@ -285,8 +283,8 @@ void	MinQueue<T>::sort	(T *A)
 template <typename T>
 string MinQueue<T>::to_string() const
 {
-	if (heapArray.size() == 0)
-		return "[]";
+	/*if (heapArray.size() == 0)
+		return "";
 
 	string answer;
 	//answer << "[";
@@ -298,7 +296,21 @@ string MinQueue<T>::to_string() const
 			answer += ", ";
 	}
 	//answer << "]";
-	return answer;
+	return answer;*/
+	stringstream answer;
+	if (heapArray.size() == 0)
+		return "";
+
+
+
+	for (vector<int>::size_type i = 0; i < heapArray.size(); i++)
+	{
+		answer << heapArray[i];
+		if (i != heapArray.size() - 1)
+			answer << " ";
+	}
+	return answer.str();
+	
 }
 //==============================================================
 // set
@@ -333,13 +345,14 @@ void MinQueue<T>::set(int i, const T &val)
 //==============================================================
 template <typename T>
 void MinQueue<T>::allocate(int n)
-{
-	if (n <= heapArray.capacity())
+{	
+	int capacity = heapArray.capacity();
+	if (n <= capacity)
 	{
 		return;
 	}
 
-	int newCapacity = (n > heapArray.capacity() * 2) ? n : heapArray.capacity() * 2; 
+	int newCapacity = (n > capacity * 2) ? n : capacity * 2; 
 
 	heapArray.reserve(newCapacity);
 }
