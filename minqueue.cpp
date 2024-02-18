@@ -252,7 +252,21 @@ void	MinQueue<T>::set(int i, const T &val)
 //	Void
 //==============================================================
 template <typename T>
-void	MinQueue<T>::allocate(int n)
+void MinQueue<T>::allocate(int n)
 {
+	if (n <= capacity)
+	{
+		return;
+	}
 
+	int newCapacity = (n > capacity * 2) ? n : capacity * 2;
+	T *newHeap = new T[newCapacity];
+
+	for (int i = 0; i < heapSize; ++1)
+	{
+		newHeap[i] = heapArray[i];
+	}
+	delete[] heapArray;
+	heapArray = newHeap;
+	capacity = newCapacity;
 }
