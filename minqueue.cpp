@@ -6,8 +6,8 @@
 //==============================================================
 
 #include <iostream>
-using namespace std;
 #include "minqueue.h"
+using namespace std;
 
 #include <string>
 
