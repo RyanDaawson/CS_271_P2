@@ -331,22 +331,15 @@ void MinQueue<T>::set(int i, const T &val)
 // Return Value:
 //	Void
 //==============================================================
-/*template <typename T>
+template <typename T>
 void MinQueue<T>::allocate(int n)
 {
-	if (n <= capacity)
+	if (n <= heapArray.capacity())
 	{
 		return;
 	}
 
-	int newCapacity = (n > capacity * 2) ? n : capacity * 2;
-	T *newHeap = new T[newCapacity];
+	int newCapacity = (n > heapArray.capacity() * 2) ? n : heapArray.capacity() * 2; 
 
-	for (int i = 0; i < heapSize; ++1)
-	{
-		newHeap[i] = heapArray[i];
-	}
-	delete[] heapArray;
-	heapArray = newHeap;
-	capacity = newCapacity;
-}*/
+	heapArray.reserve(newCapacity);
+}
