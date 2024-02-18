@@ -128,6 +128,7 @@ T&	MinQueue<T>::min	() const
     if (isEmpty()) {
         throw std::runtime_error("MinQueue is empty.");
     }
+  
     return heapArray[0];
 }
 
@@ -168,7 +169,8 @@ T&	MinQueue<T>::extract_min	()
 
 template <typename T>
 void MinQueue<T>::decrease_key(int i, const T &k) {
-    if (i < 0 || i >= heapArray.size()) {
+    int n = heapArray.size();
+    if (i < 0 || i >= n) {
         throw std::out_of_range("Index is out of range.");
     }
     if (k > heapArray[i]) {
@@ -283,20 +285,20 @@ void	MinQueue<T>::sort	(T *A)
 template <typename T>
 string MinQueue<T>::to_string() const
 {
-	if (heapSize == 0)
+	if (heapArray.size() == 0)
 		return "[]";
 
-	std::stringstream answer;
-	answer << "[";
+	string answer;
+	//answer << "[";
 
-	for (int i = 0; i < heapSize; ++1)
+	for (vector<int>::size_type i = 0; i < heapArray.size(); i++)
 	{
-		answer << heapArray[i];
-		if (i != heapSize - 1)
-			answer << ", ";
+		answer += heapArray[i];
+		if (i != heapArray.size() - 1)
+			answer += ", ";
 	}
-	answer << "]";
-	return answer.str();
+	//answer << "]";
+	return answer;
 }
 //==============================================================
 // set
@@ -308,13 +310,16 @@ string MinQueue<T>::to_string() const
 // Return Value:
 //	Void
 //==============================================================
-/*template <typename T>
-void MinQueue<T>::set(int i, const T &val) if (i < 0 || i heapSize)
+template <typename T>
+void MinQueue<T>::set(int i, const T &val) 
 {
-	throw std::out_of_range("Index out of range");
+	int n = heapArray.size();
+	if (i < 0 || i >= n)
+		throw std::out_of_range("Index out of range");
+	heapArray[i] = val;
 }
 
-heapArray[i] = val;*/
+
 
 //==============================================================
 // allocates
