@@ -6,6 +6,7 @@
 //==============================================================
 
 #include <iostream>
+#include <stdexcept>
 #include "minqueue.h"
 using namespace std;
 
@@ -13,6 +14,7 @@ using namespace std;
 
 //==============================================================
 // default constructor
+// Aniket
 // 	- creates a new empty Queue
 //
 // Parameters:
@@ -118,13 +120,15 @@ void	MinQueue<T>::insert	(const T &x)
 // Return Value:
 //	T
 //==============================================================
+
 template <typename T>
 T&	MinQueue<T>::min	() const
 {
-
+    if (isEmpty()) {
+        throw std::runtime_error("MinQueue is empty.");
+    }
+    return heapArray[0];
 }
-
-
 
 //==============================================================
 // extract_min
