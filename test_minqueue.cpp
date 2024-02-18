@@ -414,9 +414,33 @@ int main()
     time_test();
 
     cout << "Testing completed" << endl;*/
-    int a[] = {3, 2, 1};  
-    MinQueue<int> m(a, 3);
+    int a[] = {3, 1, 1, 1, 0};  
+    MinQueue<int> m(a, 5);
     cout << m << endl;
+	MinQueue<int> m1;
 
+	  cout << m1 << endl;
+	m1 = m;
+	    cout << m1 << endl;
+	    
+	    int *int_data = new int[10];
+    for (int i = 0; i < 10; i++)
+    {
+        int_data[i] = 10 - i;
+    }
+
+   
+        MinQueue<int> empty;
+        empty.insert(0);
+ 	 cout << empty << endl;
+
+     
+
+        MinQueue<int> mq(int_data, 10);
+        mq.insert(25);
+        mq.insert(0);
+     	    cout << mq << endl;
+     	    mq.extract_min();
+     	    cout << mq << endl;     	    
     return 0;
 }
