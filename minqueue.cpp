@@ -274,7 +274,7 @@ void	MinQueue<T>::set(int i, const T &val)
 // Return Value:
 //	Void
 //==============================================================
-template <typename T>/*
+/*template <typename T>
 void MinQueue<T>::allocate(int n)
 {
 	if (n <= capacity)
