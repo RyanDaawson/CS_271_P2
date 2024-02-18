@@ -11,14 +11,21 @@
 #include <string>
 #include <vector>
 
+
 using namespace std;
 template <typename T>
 class MinQueue
 {
 private:
     vector<T> heapArray; // pointer to the array that stores elements of Heap data structure.
+    
+    bool isEmpty() const 
+    {
+    return heapArray.empty();
+    }
+
     //int capacity; // maximum number of items the queue can hold.
-    //int heapsize; // current number of items in the queue.
+    //int heapsize = heapArray.size(); // current number of items in the queue.
 
     /*void increase_capacity() // function to enlarge the size of the heapArray when it is full
     {
@@ -57,8 +64,13 @@ public:
     
     friend ostream & operator << ( ostream &os, const MinQueue<T> &l )
     {
+    	if (l.heapArray.size() == 0)
+    	{
+    		os << "[]";
+    		return os;
+    	}
         os << "[ ";
-        for (std::vector<int>::size_type i = 0; i < l.heapArray.size()-1; i++)
+        for (vector<int>::size_type i = 0; i < l.heapArray.size()-1; i++)
             os << l.heapArray[i] << ", ";
         if ( l.heapArray.size() != 0 )
             os << l.heapArray[l.heapArray.size()-1] << " ]";
