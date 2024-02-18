@@ -168,8 +168,27 @@ void	MinQueue<T>::decrease_key	(int i, const T &k)
 template <typename T>
 void	MinQueue<T>::min_heapify	(int i)
 {
-
+    int smallest = i; // Initialize smallest as root Since we are using 0 based indexing
+    int l = 2 * i + 1; // left = 2*i + 1
+    int r = 2 * i + 2; // right = 2*i + 2
+ 
+    // If left child is smaller than root
+    if (l < n && heapArray[l] < arr[smallest])
+        smallest = l;
+ 
+    // If right child is samller than smallest so far
+    if (r < n && heapArray[r] < arr[smallest])
+        smallest = r;
+ 
+    // If smallest is not root
+    if (smallest != i) {
+        swap(heapArray[i], heapArray[s,smallest]);
+ 
+        // Recursively heapify the affected sub-tree
+        min_heapify(heapArray, heapsize , smallest);
+    }
 }
+
 
 
 //==============================================================
