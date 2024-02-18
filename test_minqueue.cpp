@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/*
+
 void test_minqueue()
 {
 
@@ -400,7 +400,7 @@ void time_test()
 int main()
 {
 
-  /*  test_minqueue();
+    test_minqueue();
     test_insert();
     test_min();
     test_extract_min();
