@@ -95,7 +95,7 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 //==============================================================
 // insert
 // Philip
-// 	- Inserts item x into the queue. If it is full, returns error.
+// 	- Inserts item x into the queue.
 //
 // Parameters:
 //	element x
@@ -105,7 +105,8 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 template <typename T>
 void	MinQueue<T>::insert	(const T &x)                          
 {
-
+	heapArray.push_back(x);
+	build_heap();
 }
 
 
@@ -143,7 +144,13 @@ T&	MinQueue<T>::min	() const
 template <typename T>
 T&	MinQueue<T>::extract_min	()
 {
-
+	T& min = heapArray[0];
+	heapArray[0] = heapArray.at(heapArray.size()-1);
+	cout << *heapArray.end() << endl;
+	heapArray.resize(heapArray.size()-1);
+	build_heap();
+	
+	return min;
 }                   
 
 
