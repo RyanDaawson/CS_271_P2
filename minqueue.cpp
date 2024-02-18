@@ -252,7 +252,19 @@ void	MinQueue<T>::build_heap	()
 template <typename T>
 void	MinQueue<T>::sort	(T *A)
 {
+	vector<T> tempHeap = heapArray;
+	int n = heapArray.size();
 
+	for (int i = 0; i < n; i++)
+	{
+		A[i] = heapArray[0];
+		heapArray[0] = heapArray.at(heapArray.size()-1);
+		heapArray.resize(heapArray.size()-1);
+		min_heapify(0);		
+	}
+	heapArray.clear();
+	heapArray = tempHeap;
+	
 }
 
         
@@ -285,13 +297,13 @@ string	MinQueue<T>::to_string	() const
 // Return Value:
 //	Void
 //==============================================================
-template <typename T>
+/*template <typename T>
 void MinQueue<T>::set(int i, const T &val) if (i < 0 || i heapSize)
 {
 	throw std::out_of_range("Index out of range");
 }
 
-heapArray[i] = val;
+heapArray[i] = val;*/
 
 //==============================================================
 // allocates
@@ -303,7 +315,7 @@ heapArray[i] = val;
 // Return Value:
 //	Void
 //==============================================================
-template <typename T>
+/*template <typename T>
 void MinQueue<T>::allocate(int n)
 {
 	if (n <= capacity)
@@ -321,4 +333,4 @@ void MinQueue<T>::allocate(int n)
 	delete[] heapArray;
 	heapArray = newHeap;
 	capacity = newCapacity;
-}
+}*/
