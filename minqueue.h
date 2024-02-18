@@ -58,7 +58,7 @@ public:
     friend ostream & operator << ( ostream &os, const MinQueue<T> &l )
     {
         os << "[ ";
-        for ( int i = 0; i < l.heapArray.size()-1; i++ )
+        for (std::vector<int>::size_type i = 0; i < l.heapArray.size()-1; i++)
             os << l.heapArray[i] << ", ";
         if ( l.heapArray.size() != 0 )
             os << l.heapArray[l.heapArray.size()-1] << " ]";
