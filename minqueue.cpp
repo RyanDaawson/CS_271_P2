@@ -165,11 +165,23 @@ T&	MinQueue<T>::extract_min	()
 // Return Value:
 //	Void
 //==============================================================
-template <typename T>
-void	MinQueue<T>::decrease_key	(int i, const T &k)
-{
 
+template <typename T>
+void MinQueue<T>::decrease_key(int i, const T &k) {
+    if (i < 0 || i >= heapArray.size()) {
+        throw std::out_of_range("Index is out of range.");
+    }
+    if (k > heapArray[i]) {
+        throw std::invalid_argument("New key is greater than current key.");
+    }
+
+    heapArray[i] = k;
+    while (i > 0 && heapArray[(i - 1) / 2] > heapArray[i]) {
+        std::swap(heapArray[i], heapArray[(i - 1) / 2]);
+        i = (i - 1) / 2; // Move up to the parent index
+    }
 }
+
 
 
 //==============================================================
@@ -289,7 +301,7 @@ void	MinQueue<T>::set(int i, const T &val)
 // Return Value:
 //	Void
 //==============================================================
-/*template <typename T>
+template <typename T>
 void MinQueue<T>::allocate(int n)
 {
 	if (n <= capacity)
@@ -307,4 +319,4 @@ void MinQueue<T>::allocate(int n)
 	delete[] heapArray;
 	heapArray = newHeap;
 	capacity = newCapacity;
-}*/
+}
