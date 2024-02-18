@@ -43,7 +43,9 @@ template <typename T>
 
 	MinQueue<T>::MinQueue	(T *A, int n)
 {
-
+	for (int i = 0; i < n; i++)	
+		heapArray.push_back(A[i]);
+	build_heap();
 }                        
     
     
@@ -59,9 +61,9 @@ template <typename T>
 //	Void
 //==============================================================
 template <typename T>
-	MinQueue<T>::~MinQueue	();                                      
+	MinQueue<T>::~MinQueue	()                                      
 {
-	delete[] heapArray;
+	heapArray.clear();
 }    
     
     
@@ -173,19 +175,19 @@ void	MinQueue<T>::min_heapify	(int i)
     int r = 2 * i + 2; // right = 2*i + 2
  
     // If left child is smaller than root
-    if (l < n && heapArray[l] < arr[smallest])
+    if (l < heapArray.size() && heapArray[l] < heapArray[smallest])
         smallest = l;
  
     // If right child is samller than smallest so far
-    if (r < n && heapArray[r] < arr[smallest])
+    if (r < heapArray.size() && heapArray[r] < heapArray[smallest])
         smallest = r;
  
     // If smallest is not root
     if (smallest != i) {
-        swap(heapArray[i], heapArray[s,smallest]);
+        swap(heapArray[i], heapArray[smallest]);
  
         // Recursively heapify the affected sub-tree
-        min_heapify(heapArray, heapsize , smallest);
+        min_heapify(smallest);
     }
 }
 
@@ -204,7 +206,9 @@ void	MinQueue<T>::min_heapify	(int i)
 template <typename T>
 void	MinQueue<T>::build_heap	()
 {
-
+	int n = heapArray.size();
+	for (int i = n/2; i > -1; i--)
+		min_heapify(i);
 }
 
 
@@ -240,7 +244,7 @@ void	MinQueue<T>::sort	(T *A)
 template <typename T>
 string	MinQueue<T>::to_string	() const
 {
-
+ return "s";
 }
 
 
@@ -270,7 +274,7 @@ void	MinQueue<T>::set(int i, const T &val)
 // Return Value:
 //	Void
 //==============================================================
-template <typename T>
+template <typename T>/*
 void MinQueue<T>::allocate(int n)
 {
 	if (n <= capacity)
@@ -288,4 +292,4 @@ void MinQueue<T>::allocate(int n)
 	delete[] heapArray;
 	heapArray = newHeap;
 	capacity = newCapacity;
-}
+}*/

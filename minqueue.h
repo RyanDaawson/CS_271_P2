@@ -9,16 +9,18 @@
 #define MINQUEUE_H
 #include <sstream>
 #include <string>
+#include <vector>
+
 using namespace std;
 template <typename T>
 class MinQueue
 {
 private:
-    T *heapArray; // pointer to the array that stores elements of Heap data structure.
-    int capacity; // maximum number of items the queue can hold.
-    int heapsize; // current number of items in the queue.
+    vector<T> heapArray; // pointer to the array that stores elements of Heap data structure.
+    //int capacity; // maximum number of items the queue can hold.
+    //int heapsize; // current number of items in the queue.
 
-    void increase_capacity() // function to enlarge the size of the heapArray when it is full
+    /*void increase_capacity() // function to enlarge the size of the heapArray when it is full
     {
         int newCapacity = capacity * 2;
         T *newHeap = new T[newCapacity];
@@ -34,8 +36,8 @@ private:
     {
         T temp = a;
         a = b;
-        b = temp;
-    };
+        b = temp; 
+    }; */
 
 public:
     MinQueue(void);                                   // Constructor - creates a new empty Queue with given capacity */
@@ -56,10 +58,10 @@ public:
     friend ostream & operator << ( ostream &os, const MinQueue<T> &l )
     {
         os << "[ ";
-        for ( int i = 0; i < l.heapsize-1; i++ )
+        for ( int i = 0; i < l.heapArray.size()-1; i++ )
             os << l.heapArray[i] << ", ";
-        if ( l.heapsize != 0 )
-            os << l.heapArray[l.heapsize-1] << " ]";
+        if ( l.heapArray.size() != 0 )
+            os << l.heapArray[l.heapArray.size()-1] << " ]";
         else
             os << " ]";
         return os;
