@@ -373,14 +373,14 @@ void time_test()
     total += elapsed.count();
 
     begin = std::chrono::high_resolution_clock::now();
-    int _ = mq.min();
+    //int _ = mq.min();
     end = std::chrono::high_resolution_clock::now();
     elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
     cout << "min time test took " << elapsed.count() << " nanoseconds" << endl;
     total += elapsed.count();
 
     begin = std::chrono::high_resolution_clock::now();
-    _ = mq.extract_min();
+    //_ = mq.extract_min();
     end = std::chrono::high_resolution_clock::now();
     elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
     cout << "extract min time test took " << elapsed.count() << " nanoseconds" << endl;
