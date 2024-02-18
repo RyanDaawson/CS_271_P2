@@ -269,12 +269,23 @@ void	MinQueue<T>::sort	(T *A)
 //	string
 //==============================================================
 template <typename T>
-string	MinQueue<T>::to_string	() const
+string MinQueue<T>::to_string() const
 {
- return "s";
+	if (heapSize == 0)
+		return "[]";
+
+	std::stringstream answer;
+	answer << "[";
+
+	for (int i = 0; i < heapSize; ++1)
+	{
+		answer << heapArray[i];
+		if (i != heapSize - 1)
+			answer << ", ";
+	}
+	answer << "]";
+	return answer.str();
 }
-
-
 //==============================================================
 // set
 // Ryan
