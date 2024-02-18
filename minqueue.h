@@ -19,10 +19,7 @@ class MinQueue
 private:
     vector<T> heapArray; // pointer to the array that stores elements of Heap data structure.
     
-    bool isEmpty() const 
-    {
-    return heapArray.empty();
-    }
+
 
     //int capacity; // maximum number of items the queue can hold.
     //int heapsize = heapArray.size(); // current number of items in the queue.
