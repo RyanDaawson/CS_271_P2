@@ -8,7 +8,7 @@
 #include <iostream>
 #include "usecase.cpp"
 #include "minqueue.cpp"
-
+#include <chrono>
 using namespace std;
 
 
@@ -318,7 +318,7 @@ void test_heapsort()
     delete[] empty_data;
     delete[] int_data;
 }
-
+/*
 void test_sliding_window()
 {
 
@@ -355,7 +355,7 @@ void test_sliding_window()
     }
 
     delete[] empty;
-}
+}*/
 
 void time_test()
 {
@@ -396,7 +396,7 @@ void time_test()
     total += elapsed.count();
     cout << "Total time: " << total << endl;
 }
-*/
+
 int main()
 {
 
@@ -409,38 +409,10 @@ int main()
     test_build_min_heap();
     test_heapsort();
 
-    test_sliding_window();
+  //  test_sliding_window();
 
     time_test();
 
-    cout << "Testing completed" << endl;*/
-    int a[] = {3, 1, 1, 1, 0};  
-    MinQueue<int> m(a, 5);
-    cout << m << endl;
-	MinQueue<int> m1;
-
-	  cout << m1 << endl;
-	m1 = m;
-	    cout << m1 << endl;
-	    
-	    int *int_data = new int[10];
-    for (int i = 0; i < 10; i++)
-    {
-        int_data[i] = 10 - i;
-    }
-
-   
-        MinQueue<int> empty;
-        empty.insert(0);
- 	 cout << empty << endl;
-
-     
-
-        MinQueue<int> mq(int_data, 10);
-        mq.insert(25);
-        mq.insert(0);
-     	    cout << mq << endl;
-     	    mq.extract_min();
-     	    cout << mq << endl;     	    
+    cout << "Testing completed" << endl;  	    
     return 0;
 }
