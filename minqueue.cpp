@@ -6,6 +6,7 @@
 //==============================================================
 
 #include <iostream>
+#include <stdexcept>
 #include "minqueue.h"
 using namespace std;
 
