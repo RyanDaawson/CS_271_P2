@@ -6,6 +6,7 @@
 //==============================================================
 
 #include <iostream>
+#include <stdexcept>
 #include "minqueue.h"
 using namespace std;
 
@@ -13,6 +14,7 @@ using namespace std;
 
 //==============================================================
 // default constructor
+// Aniket
 // 	- creates a new empty Queue
 //
 // Parameters:
@@ -81,7 +83,11 @@ template <typename T>
 template <typename T>
 MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 {
-	
+	heapArray.clear();
+	for (vector<int>::size_type i = 0; i < myHeap.heapArray.size(); i++)	
+		heapArray.push_back(myHeap.heapArray[i]);
+	build_heap();
+        return *this;     	
 } 
 
 
@@ -89,7 +95,7 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 //==============================================================
 // insert
 // Philip
-// 	- Inserts item x into the queue. If it is full, returns error.
+// 	- Inserts item x into the queue.
 //
 // Parameters:
 //	element x
@@ -99,7 +105,8 @@ MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 template <typename T>
 void	MinQueue<T>::insert	(const T &x)                          
 {
-
+	heapArray.push_back(x);
+	build_heap();
 }
 
 
@@ -114,13 +121,15 @@ void	MinQueue<T>::insert	(const T &x)
 // Return Value:
 //	T
 //==============================================================
+
 template <typename T>
 T&	MinQueue<T>::min	() const
 {
-
+    if (isEmpty()) {
+        throw std::runtime_error("MinQueue is empty.");
+    }
+    return heapArray[0];
 }
-
-
 
 //==============================================================
 // extract_min
@@ -135,7 +144,13 @@ T&	MinQueue<T>::min	() const
 template <typename T>
 T&	MinQueue<T>::extract_min	()
 {
-
+	T& min = heapArray[0];
+	heapArray[0] = heapArray.at(heapArray.size()-1);
+	cout << *heapArray.end() << endl;
+	heapArray.resize(heapArray.size()-1);
+	build_heap();
+	
+	return min;
 }                   
 
 
@@ -171,8 +186,8 @@ template <typename T>
 void	MinQueue<T>::min_heapify	(int i)
 {
     int smallest = i; // Initialize smallest as root Since we are using 0 based indexing
-    int l = 2 * i + 1; // left = 2*i + 1
-    int r = 2 * i + 2; // right = 2*i + 2
+    vector<int>::size_type l = 2 * i + 1; // left = 2*i + 1
+    vector<int>::size_type r = 2 * i + 2; // right = 2*i + 2
  
     // If left child is smaller than root
     if (l < heapArray.size() && heapArray[l] < heapArray[smallest])
