@@ -81,7 +81,11 @@ template <typename T>
 template <typename T>
 MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
 {
-	
+	heapArray.clear();
+	for (vector<int>::size_type i = 0; i < myHeap.heapArray.size(); i++)	
+		heapArray.push_back(myHeap.heapArray[i]);
+	build_heap();
+        return *this;     	
 } 
 
 
@@ -171,8 +175,8 @@ template <typename T>
 void	MinQueue<T>::min_heapify	(int i)
 {
     int smallest = i; // Initialize smallest as root Since we are using 0 based indexing
-    int l = 2 * i + 1; // left = 2*i + 1
-    int r = 2 * i + 2; // right = 2*i + 2
+    vector<int>::size_type l = 2 * i + 1; // left = 2*i + 1
+    vector<int>::size_type r = 2 * i + 2; // right = 2*i + 2
  
     // If left child is smaller than root
     if (l < heapArray.size() && heapArray[l] < heapArray[smallest])
