@@ -114,13 +114,15 @@ void	MinQueue<T>::insert	(const T &x)
 // Return Value:
 //	T
 //==============================================================
+
 template <typename T>
 T&	MinQueue<T>::min	() const
 {
-
+    if (isEmpty()) {
+        throw std::runtime_error("MinQueue is empty.");
+    }
+    return heapArray[0];
 }
-
-
 
 //==============================================================
 // extract_min
