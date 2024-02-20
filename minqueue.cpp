@@ -128,7 +128,7 @@ T&	MinQueue<T>::min	()
 {
 
 	if (heapArray.size() < 1)
-		return T;
+		return T();
      
 	return heapArray[0];
 }
