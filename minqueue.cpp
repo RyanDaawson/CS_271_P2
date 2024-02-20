@@ -126,7 +126,7 @@ void	MinQueue<T>::insert	(const T &x)
 template <typename T>
 T	MinQueue<T>::min	()
 {
-
+	
 	if (heapArray.size() < 1)
 		return T();
      
@@ -172,10 +172,10 @@ template <typename T>
 void MinQueue<T>::decrease_key(int i, const T &k) {
 	int n = heapArray.size();
 	if (i < 0 || i >= n) {
-		throw std::out_of_range("Index is out of range.");
+		return;
 	    }
 	    if (k > heapArray[i]) {
-		throw std::invalid_argument("New key is greater than current key.");
+		return;
 	    }
 
 	    heapArray[i] = k;
@@ -328,9 +328,9 @@ string MinQueue<T>::to_string() const
 template <typename T>
 void MinQueue<T>::set(int i, const T &val) 
 {
-	int n = heapArray.size();
-	if (i < 0 || i >= n)
-		throw std::out_of_range("Index out of range");
+	int n = heapArray.capacity();
+	if (i < 0 || i > n-1)
+		return;
 	heapArray[i] = val;
 }
 
@@ -355,7 +355,7 @@ void MinQueue<T>::allocate(int n)
 		return;
 	}
 
-	int newCapacity = (n > capacity * 2) ? n : capacity * 2; 
+	int newCapacity = (n > capacity) ? n : capacity * 2; 
 
 	heapArray.reserve(newCapacity);
 }
