@@ -256,10 +256,13 @@ void test_build_min_heap()
 
         MinQueue<int> mq;
         mq.allocate(10);
+
         for (int i = 0; i < 10; i++)
         {
             mq.set(i, int_data[i]);
+
         }
+	cout << mq << endl;
         string o_mq_str = mq.to_string();
 
         mq.build_heap();
