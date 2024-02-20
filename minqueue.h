@@ -49,7 +49,7 @@ public:
     ~MinQueue();                                      // Destructor - frees up memory allocated by the data class
     MinQueue<T> operator=(const MinQueue<T> &myHeap); // Assignment operator
     void insert(const T &x);                          // Inserts item x into the queue. If it is full, returns error.
-    T min();                                    // Returns smallest item in the queue. If it is empty, returns error.
+    T& min();                                    // Returns smallest item in the queue. If it is empty, returns error.
     T& extract_min();                                  // Removes smallest item from the queue and returns it. If it is empty, returns
     void decrease_key(int i, const T &k);             // Decreases key value of node at index i to k. If it is not present or
     void min_heapify(int i);                              // Ensure the subtree rooted at index i follows the heap property

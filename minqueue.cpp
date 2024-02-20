@@ -124,11 +124,11 @@ void	MinQueue<T>::insert	(const T &x)
 //==============================================================
 
 template <typename T>
-T	MinQueue<T>::min	()
+T&	MinQueue<T>::min	()
 {
-	
+
 	if (heapArray.size() < 1)
-		return T();
+		return T;
      
 	return heapArray[0];
 }
@@ -357,5 +357,5 @@ void MinQueue<T>::allocate(int n)
 
 	int newCapacity = (n > capacity) ? n : capacity * 2; 
 
-	heapArray.reserve(newCapacity);
+	heapArray.resize(newCapacity);
 }
