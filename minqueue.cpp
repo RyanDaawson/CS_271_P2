@@ -124,10 +124,20 @@ void	MinQueue<T>::insert	(const T &x)
 //==============================================================
 
 template <typename T>
+<<<<<<< HEAD
 T&	MinQueue<T>::min ()
 {
 	if (heapArray.size() > 0) 
         return heapArray[0];
+=======
+T	MinQueue<T>::min	()
+{
+
+	if (heapArray.size() < 1)
+		return T();
+     
+	return heapArray[0];
+>>>>>>> 1093cc6ad8610cf55817cb8fcda5bdd342cd0a19
 }
 
 //==============================================================
@@ -167,19 +177,19 @@ T&	MinQueue<T>::extract_min	()
 
 template <typename T>
 void MinQueue<T>::decrease_key(int i, const T &k) {
-    int n = heapArray.size();
-    if (i < 0 || i >= n) {
-        throw std::out_of_range("Index is out of range.");
-    }
-    if (k > heapArray[i]) {
-        throw std::invalid_argument("New key is greater than current key.");
-    }
+	int n = heapArray.size();
+	if (i < 0 || i >= n) {
+		throw std::out_of_range("Index is out of range.");
+	    }
+	    if (k > heapArray[i]) {
+		throw std::invalid_argument("New key is greater than current key.");
+	    }
 
-    heapArray[i] = k;
-    while (i > 0 && heapArray[(i - 1) / 2] > heapArray[i]) {
-        std::swap(heapArray[i], heapArray[(i - 1) / 2]);
-        i = (i - 1) / 2; // Move up to the parent index
-    }
+	    heapArray[i] = k;
+	    while (i > 0 && heapArray[(i - 1) / 2] > heapArray[i]) {
+		std::swap(heapArray[i], heapArray[(i - 1) / 2]);
+		i = (i - 1) / 2; // Move up to the parent index
+	    }
 }
 
 
