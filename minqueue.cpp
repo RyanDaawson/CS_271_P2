@@ -126,20 +126,12 @@ void	MinQueue<T>::insert	(const T &x)
 template <typename T>
 T	MinQueue<T>::min	() const
 {
-<<<<<<< HEAD
+
 
 	if (heapArray.size() < 1)
 		return T();
 
     return heapArray[0];
-=======
-	int n = heapArray.size(); 
-
-	if (n < 1 )
-		return T();
-	else
-		return heapArray[0];
->>>>>>> 1a77e41cf1d0d44c53418f812f32e868c71f8681
 }
 
 //==============================================================
