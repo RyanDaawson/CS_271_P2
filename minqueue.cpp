@@ -124,13 +124,14 @@ void	MinQueue<T>::insert	(const T &x)
 //==============================================================
 
 template <typename T>
-T&	MinQueue<T>::min	()
+T	MinQueue<T>::min	() const
 {
+	int n = heapArray.size(); 
 
-	if (heapArray.size() < 1)
+	if (n < 1 )
 		return T();
-     
-	return heapArray[0];
+	else
+		return heapArray[0];
 }
 
 //==============================================================
@@ -144,11 +145,15 @@ T&	MinQueue<T>::min	()
 //	T
 //==============================================================
 template <typename T>
-T&	MinQueue<T>::extract_min	()
+T	MinQueue<T>::extract_min	()
 {
-	T& min = heapArray[0];
+	
+	if ( heapArray.size() < 1)
+		return T();
+		
+	T min = heapArray[0];
 	heapArray[0] = heapArray.at(heapArray.size()-1);
-	cout << *heapArray.end() << endl;
+
 	heapArray.resize(heapArray.size()-1);
 	build_heap();
 	
