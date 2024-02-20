@@ -262,7 +262,7 @@ void test_build_min_heap()
             mq.set(i, int_data[i]);
 
         }
-	cout << mq << endl;
+        
         string o_mq_str = mq.to_string();
 
         mq.build_heap();
