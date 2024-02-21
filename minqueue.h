@@ -53,5 +53,4 @@ public:
         return os;
     }
 };
-
 #endif /* MINQUEUE_H */
