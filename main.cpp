@@ -17,6 +17,6 @@ int main()
 	cout << sliding_window(arr, 8, 3) << endl;
 	
 	cout << sliding_window(arr1, 2, 3) << endl;
-	cout << sliding_window(arr2, 100, 0) << endl;
+	cout << sliding_window(arr2, 100, 33) << endl;
 	return 0;
 }

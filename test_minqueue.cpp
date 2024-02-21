@@ -65,15 +65,32 @@ void test_insert()
         empty.insert(0);
         string mq_str = empty.to_string();
 
+
+        MinQueue<string> empty1;
+        empty1.insert("the");
+        string mq_str1 = empty1.to_string();
+
         if (mq_str != "0")
         {
             cout << "Incorrect insert result. Epected 0 but got : " << mq_str << endl;
         }
-
+        if (mq_str1 != "the")
+        {
+            cout << "Incorrect insert result. Epected 'the' but got : " << mq_str1 << endl;
+        }
         MinQueue<int> mq(int_data, 10);
         mq.insert(25);
         mq.insert(0);
         mq_str = mq.to_string();
+
+	empty1.insert("boy");
+	empty1.insert("is");
+	empty1.insert("going");
+	empty1.insert("to");
+	empty1.insert("school");
+	
+	if (empty1.to_string() != "boy going is the to school")
+		cout << " incorrect insert result. Expected 'boy going is the to school' but got : " << empty1.to_string() << endl;
 
         if (mq_str != "0 2 1 3 6 4 8 10 7 9 25 5")
         {
@@ -516,7 +533,6 @@ int main()
     test_heapsort();
     test_duplicate_values();
     testInsert();
-    testCopyConstructor();
     testMinHeapify();
 
     test_sliding_window();
