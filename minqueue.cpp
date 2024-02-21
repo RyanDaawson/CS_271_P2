@@ -105,8 +105,20 @@ MinQueue<T> MinQueue<T>::operator=(const MinQueue<T> &myHeap)
 template <typename T>
 void	MinQueue<T>::insert	(const T &x)                          
 {
-	heapArray.push_back(x);
-	build_heap(); 
+    // Add the new element at the end of the heap array
+    heapArray.push_back(x);
+   
+    // Get the index of the newly added element
+    int i = heapArray.size() - 1;
+   
+    // Heapify-up: Adjust the position of the new element to maintain the min-heap property
+    while (i != 0 && heapArray[(i - 1) / 2] > heapArray[i]) {
+        // Swap the new element with its parent
+        std::swap(heapArray[i], heapArray[(i - 1) / 2]);
+       
+        // Move up to the parent's index
+        i = (i - 1) / 2;
+    }
 }
 
 
