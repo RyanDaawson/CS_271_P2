@@ -23,7 +23,7 @@ template <typename T>
 string sliding_window(T arr[], int len, int window)
 {
 	// returns empty strings for empty arrays
-	if (len == 0)
+	if (len == 0 or window == 0)
 		return "";
 	
 	if (len <= window or len == 1)
