@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include "usecase.cpp"
+#include "minqueue.h"
+#include <vector>
 #include <chrono>
 using namespace std;
 
@@ -426,6 +428,81 @@ void test_duplicate_values()
 
 }
 
+
+
+
+
+
+
+void testInsert() // For the in-sert
+{
+ MinQueue<int> queue;
+    bool testPassed = true;
+
+    queue.insert(5);
+    queue.insert(3);
+    queue.insert(8);
+    queue.insert(1);
+    queue.insert(4);
+
+    
+    if (queue.min() != 1) {
+        std::cout << "Test failed" << std::endl;
+        testPassed = false;
+    }
+
+    if (testPassed) {
+        std::cout << "Insert method test passed." << std::endl;
+    } else {
+        std::cout << "One or more tests failed." << std::endl;
+    }
+}
+
+void testCopyConstructor() {
+    MinQueue<int> original;
+    original.insert(5);
+    original.insert(10);
+    original.insert(3);
+    MinQueue<int> copy = original; 
+    
+    try {
+        bool passed = true;
+        while (passed) {
+            if (copy.extract_min() != original.extract_min()) {
+                passed = false;
+                break;
+            }
+        }
+        if (passed) std::cout << "passed.\n";
+        else std::cout << "failed.\n";
+    } catch (...) {
+       
+        std::cout << "Copy constructor test failed due to exception.\n";
+    }
+}
+
+
+void testMinHeapify() {
+    MinQueue<int> mq;
+    
+    mq.insert(10);
+    mq.insert(5);
+    mq.insert(15);
+    mq.insert(3); 
+
+    int minElement = mq.extract_min(); // This should trigger the min_heapify internally
+
+    
+    if (minElement != 3) { // Check if the extracted element is indeed the minimum
+        std::cout << "failed\n";
+    } else {
+        std::cout << "passed\n";
+    }
+}
+
+
+
+
 int main()
 {
 
@@ -438,6 +515,9 @@ int main()
     test_build_min_heap();
     test_heapsort();
     test_duplicate_values();
+    testInsert();
+    testCopyConstructor();
+    testMinHeapify();
 
     test_sliding_window();
 
