@@ -54,22 +54,21 @@ MinQueue<T>::MinQueue(T *A, int n)
    
     
 //==============================================================
-// destructor
+// Destructor 
 // Philip
-// 	- frees up memory allocated by the data class
-//
+// Pre-condition: None
+// Post-condition: The heapArray is cleared
 // Parameters:
 //	Void
 // Return Value:
 //	Void
 //==============================================================
 template <typename T>
-	MinQueue<T>::~MinQueue	()                                      
+MinQueue<T>::~MinQueue()
 {
-	heapArray.clear();
-}    
-    
-    
+	heapArray.clear(); // Clears the heapArray 
+}
+
     
 //==============================================================
 // assignment
