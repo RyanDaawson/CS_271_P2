@@ -1,13 +1,12 @@
-//
-//  test_minqueue_example.cpp
-//  Priority Queue Project
-//
-//  Created by Stacey Truex
-//
+//==============================================================
+// Ryan Daawson, Philip Perry Pearce-Pearson and Aniket Gauba
+// 21st January 2023
+// test_minqueue_example.cpp
+// This file contains the minqueue class test cases.  
+//==============================================================
 
 #include <iostream>
 #include "usecase.cpp"
-//#include "minqueue.cpp"
 #include <chrono>
 using namespace std;
 
@@ -376,14 +375,14 @@ void time_test()
     total += elapsed.count();
 
     begin = std::chrono::high_resolution_clock::now();
-    //int _ = mq.min();
+
     end = std::chrono::high_resolution_clock::now();
     elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
     cout << "min time test took " << elapsed.count() << " nanoseconds" << endl;
     total += elapsed.count();
 
     begin = std::chrono::high_resolution_clock::now();
-    //_ = mq.extract_min();
+
     end = std::chrono::high_resolution_clock::now();
     elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
     cout << "extract min time test took " << elapsed.count() << " nanoseconds" << endl;

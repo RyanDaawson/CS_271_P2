@@ -1,6 +1,6 @@
 //==============================================================
 // Ryan Daawson, Philip Perry Pearce-Pearson and Aniket Gauba
-// 19th January 2023
+// 21st January 2023
 // minqueue.cpp
 // This file contains the MinQueue class declaration.  
 //==============================================================
@@ -19,29 +19,6 @@ class MinQueue
 private:
     vector<T> heapArray; // pointer to the array that stores elements of Heap data structure.
     
-
-
-    //int capacity; // maximum number of items the queue can hold.
-    //int heapsize = heapArray.size(); // current number of items in the queue.
-
-    /*void increase_capacity() // function to enlarge the size of the heapArray when it is full
-    {
-        int newCapacity = capacity * 2;
-        T *newHeap = new T[newCapacity];
-        for (int i = 0; i < heapSize; ++i)
-            newHeap[i] = heapArray[i];
-
-        delete[] heapArray;
-        heapArray = newHeap;
-        capacity = newCapacity;
-    };
-
-    void swap(T &a, T &b) // helper function for swapping two values
-    {
-        T temp = a;
-        a = b;
-        b = temp; 
-    }; */
 
 public:
     MinQueue(void);                                   // Constructor - creates a new empty Queue with given capacity */
