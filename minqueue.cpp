@@ -302,20 +302,6 @@ void	MinQueue<T>::sort	(T *A)
 template <typename T>
 string MinQueue<T>::to_string() const
 {
-	/*if (heapArray.size() == 0)
-		return "";
-
-	string answer;
-	//answer << "[";
-
-	for (vector<int>::size_type i = 0; i < heapArray.size(); i++)
-	{
-		answer += heapArray[i];
-		if (i != heapArray.size() - 1)
-			answer += ", ";
-	}
-	//answer << "]";
-	return answer;*/
 	stringstream answer;
 	if (heapArray.size() == 0)
 		return "";
