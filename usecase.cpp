@@ -8,10 +8,21 @@
 #include "minqueue.cpp"
 using namespace std;
 
+
+//==============================================================
+// insert
+// Philip, Aniket, Ryan
+// 	- Returns a space separated string of the min sliding window
+//
+// Parameters:
+//	array, int n, int window
+// Return Value:
+//	string
+//==============================================================
 template <typename T>
 string sliding_window(T arr[], int len, int window)
 {
-
+	// returns empty strings for empty arrays
 	if (len == 0)
 		return "";
 	
