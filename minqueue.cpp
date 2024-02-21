@@ -54,42 +54,41 @@ MinQueue<T>::MinQueue(T *A, int n)
    
     
 //==============================================================
-// destructor
+// Destructor 
 // Philip
-// 	- frees up memory allocated by the data class
-//
+// Pre-condition: None
+// Post-condition: The heapArray is cleared
 // Parameters:
 //	Void
 // Return Value:
 //	Void
 //==============================================================
 template <typename T>
-	MinQueue<T>::~MinQueue	()                                      
+MinQueue<T>::~MinQueue()
 {
-	heapArray.clear();
-}    
-    
-    
+	heapArray.clear(); // Clears the heapArray 
+}
+
     
 //==============================================================
-// assignment
+// Assignment
 // Philip
-// 	- Assignment operator
-//
+// Pre-condition: An existing MinQueue object is assigned to another MinQueue object.
+// Post-condition: The current MinQueue object contains a copy of myHeap's elements and maintains the min-heap property.
 // Parameters:
 //	MinQueue<T>
 // Return Value:
 //	MinQueue<T>
 //==============================================================
 template <typename T>
-MinQueue<T>	MinQueue<T>::operator=	(const MinQueue<T> &myHeap)
+MinQueue<T> MinQueue<T>::operator=(const MinQueue<T> &myHeap)
 {
-	heapArray.clear();
-	for (vector<int>::size_type i = 0; i < myHeap.heapArray.size(); i++)	
-		heapArray.push_back(myHeap.heapArray[i]);
-	build_heap();
-        return *this;     	
-} 
+	heapArray.clear();// Clears the heapArray
+	for (vector<int>::size_type i = 0; i < myHeap.heapArray.size(); i++) // Iterates over the source heapArray.
+		heapArray.push_back(myHeap.heapArray[i]); // Adds each element from the source heapArray to the new heapArray.
+	build_heap(); // Rebuilds the heap for the min-heap property after copying.
+	return *this; // Allows you to do multiple assignments in one go
+}
 
 
 
