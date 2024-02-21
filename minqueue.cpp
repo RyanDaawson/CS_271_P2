@@ -33,25 +33,25 @@ template <typename T>
    
    
 //==============================================================
-// copy constructor
+// Copy constructor
 // Philip
-// 	- create a minimum priority queue (min heap) of the n elements in A
-//
+// Pre-condition: A pointer to an array 'A' and its size 'n'.
+// Post-condition: Creates a MinQueue object by creating a min heap with 'n' elements from array 'A'.
+
 // Parameters:
-//	array A, number of elements n
-// Return Value:
+// - T *A:
 //	Void
 //==============================================================
 template <typename T>
 
-	MinQueue<T>::MinQueue	(T *A, int n)
+MinQueue<T>::MinQueue(T *A, int n)
 {
-	for (int i = 0; i < n; i++)	
-		heapArray.push_back(A[i]);
-	build_heap();
-}                        
-    
-    
+	// Loop through array 'A' and add elements to 'heapArray'
+	for (int i = 0; i < n; i++)
+		heapArray.push_back(A[i]); // Adds A[i] to heapArray
+	build_heap(); // Build the heap based on heapArray
+}
+   
     
 //==============================================================
 // destructor
