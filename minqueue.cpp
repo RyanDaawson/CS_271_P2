@@ -107,11 +107,11 @@ template <typename T>
 void	MinQueue<T>::insert	(const T &x)                          
 {
 	heapArray.push_back(x);
-	build_heap();
+	build_heap(); 
 }
 
 
-
+ 
 //==============================================================
 // min
 // Aniket

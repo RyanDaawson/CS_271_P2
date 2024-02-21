@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "usecase.cpp"
-#include "minqueue.cpp"
+//#include "minqueue.cpp"
 #include <chrono>
 using namespace std;
 
@@ -321,7 +321,7 @@ void test_heapsort()
     delete[] empty_data;
     delete[] int_data;
 }
-/*
+
 void test_sliding_window()
 {
 
@@ -358,7 +358,7 @@ void test_sliding_window()
     }
 
     delete[] empty;
-}*/
+}
 
 void time_test()
 {
@@ -412,7 +412,7 @@ int main()
     test_build_min_heap();
     test_heapsort();
 
-  //  test_sliding_window();
+    test_sliding_window();
 
     time_test();
 
