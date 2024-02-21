@@ -400,6 +400,33 @@ void time_test()
     cout << "Total time: " << total << endl;
 }
 
+
+void test_duplicate_values()
+{
+    cout << "For testing MinQueue with the same values" << endl;
+
+    int data[] = {5,3,5,2,2,4,4};
+    int n = sizeof(data) / sizeof(data[0]);
+
+    MinQueue<int> mq(data, n); // create a minqueue with the data array
+    cout << "initial queue:" << mq.to_string() << endl;
+
+    
+    cout << "Extracting min: " << mq.extract_min() << endl;
+    cout << "Queue after extract_min: " << mq.to_string() << endl;
+
+    
+    int indexToDecrease = 3; 
+    int newValue = 1; // New value for the element at indexToDecrease
+    mq.decrease_key(indexToDecrease, newValue);
+    cout << "Queue after decrease_key operation: " << mq.to_string() << endl;
+
+    // Extract min again to see if the queue is correctly reorganized
+    cout << "Extracting min again: " << mq.extract_min() << endl;
+    cout << "Final Queue: " << mq.to_string() << endl;
+
+}
+
 int main()
 {
 
@@ -411,6 +438,7 @@ int main()
     test_heapify();
     test_build_min_heap();
     test_heapsort();
+    test_duplicate_values();
 
     test_sliding_window();
 
